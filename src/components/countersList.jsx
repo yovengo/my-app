@@ -20,16 +20,10 @@ const CountersList = () => {
         setCounters(initialState)
     }
     const onIncrement = (id) => {
-        console.log('Плюс')
-        console.log(id)
-        const selectedCounter = counters.filter((c) => c.id === id)
-        selectedCounter.map((c) => {
-            c.value++
-        })
+        setCounters(counters.map((c) => c.id === id ? {...c, value: c.value + 1} : {...c}))
     }
     const onDecrement = (id) => {
-        console.log('Минус')
-        console.log(id)
+        setCounters(counters.map((c) => c.id === id ? {...c, value: c.value - 1} : {...c}))
     }
     return (
         <>
